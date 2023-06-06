@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --background-color-principal: #151515;
+  }
+
+body{
+    background-color: var(--background-color-principal);
+  }
+
+#root{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+  /* Dashboar Aside li */
+
+  @layer components{
+
+    .items-aside li{
+      @apply flex w-56 rounded-r-3xl p-2 place-items-center text-[#898989] mb-5 text-sm transition-all cursor-pointer
+    }
+  
+    .items-aside li span svg{
+      @apply fill-[#898989] w-5 h-5 ml-10 mr-2
+    }
+
+    .items-aside li:hover{
+      @apply text-[#FFFFFF] bg-gradient-to-r from-purple-700 to-orange-600 font-bold transition-all
+    }
+
+    .items-aside li:hover .items-aside li span svg{
+       @apply fill-[#FFFFFF] transition-all
+    }
+
+    h2{
+      @apply text-[#FFFFFF]
+    }
+
+    .items-table td{
+      @apply text-[#FFFFFF] break-words pt-5 pb-5
+    }
+  }

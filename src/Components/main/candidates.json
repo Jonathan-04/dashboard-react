@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "photo": "photo1.png",
+    "name": "lrDemon Constain",
+    "rating": 4,
+    "stages": "Desing Challenge",
+    "appliedeRole": "Sr. UX Desing",
+    "applicationDate": "12/02/2023",
+    "attachments": 3
+  },
+  {
+    "id": 2,
+    "photo": "photo1.png",
+    "name": "Koalita Constain",
+    "rating": 10,
+    "stages": "Final Process",
+    "appliedeRole": "PHP Developer",
+    "applicationDate": "04/04/2023",
+    "attachments": 5
+  },
+  {
+    "id": 3,
+    "photo": "photo1.png",
+    "name": "Rias Gremory",
+    "rating": 5,
+    "stages": "In Progress",
+    "appliedeRole": "React Developer",
+    "applicationDate": "23/02/2023",
+    "attachments": 3
+  }
+]

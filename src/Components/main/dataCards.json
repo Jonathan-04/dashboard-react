@@ -1,0 +1,38 @@
+[{
+    "id": 1,
+    "icon": "Rectangle.png",
+    "circle": "Ellipse1.png",
+    "vacant": "Sr. UX Designer",
+    "postDate": 2,
+    "locationJob": "Bengaluru",
+    "experienceJob": 3,
+    "applications": 43,
+    "applicationsInWeek": 25,
+    "colorCard": "#29C5EE"
+},
+{
+    "id": 2,
+    "icon": "rocket.png",
+    "circle": "Ellipse2.png", 
+    "vacant": "PHP Developer",
+    "postDate": 5,
+    "locationJob": "Miami",
+    "experienceJob": 2,
+    "applications": 8,
+    "applicationsInWeek": 12,
+    "colorCard": "#CF1A2C"
+    
+},
+{
+    "id": 3,
+    "icon": "coin.png",
+    "circle": "Ellipse3.png", 
+    "vacant": "React Developer",
+    "postDate": 10,
+    "locationJob": "Japan",
+    "experienceJob": 1,
+    "applications": 21,
+    "applicationsInWeek": 32,
+    "colorCard": "#EAB04D"
+    
+}]
