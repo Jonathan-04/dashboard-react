@@ -10,7 +10,7 @@ import PhotoUser from "../../assets/img/photo/photo1.png";
 const AsideUser = () => {
   return (
     <>
-      <aside className="fixed w-[460px] z-10 bg-[#151515] h-[100%] right-0 overflow-auto">
+      <aside className="fixed hidden w-[460px] z-10 bg-[#151515] h-[100%] right-0 overflow-auto">
         <div className="flex justify-between m-6 ">
           <h2 className="font-semibold text-xl">Candidate Details</h2>
           <Close className="bg-[#1E1E1E] fill-[#FFFFFF] rounded-3xl w-6 h-6 p-1" />
@@ -65,6 +65,14 @@ const AsideUser = () => {
                   </li>
                 </ul>
               </li>
+              <li className="flex items-center mb-6 w-full">
+                <p className="bg-[#262626] text-[#898989] font-semibold text-center flex justify-center content-center rounded-3xl w-7 h-7 p-1 mr-3">
+                  3
+                </p>
+                <ul className="relative w-full">
+                  <li className="text-[#898989] font-semibold">Interview</li>
+                </ul>
+              </li>
             </ul>
           </section>
         </div>
@@ -85,7 +93,7 @@ const AsideUser = () => {
               satisfaction.
             </p>
           </div>
-          <button className="w-full flex items-center text-center px-6 py-4 mt-6 text-[#FFFFFF] bg-gradient-to-r from-purple-700 to-orange-600 font-semibold">
+          <button className="w-full flex justify-center text-center px-6 py-4 mt-6 text-[#FFFFFF] bg-gradient-to-r from-purple-700 to-orange-600 font-semibold">
             Move to Next Step <Arrow className="w-7 h-7" />
           </button>
         </div>

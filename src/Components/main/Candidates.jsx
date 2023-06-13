@@ -1,24 +1,42 @@
 import { AiFillStar as Star } from "react-icons/ai";
 import PhotoUser from "../../assets/img/photo/photo1.png";
-import dataCandidates from "./candidates.json";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Candidates = () => {
-  const data = dataCandidates.map((data) => {
+  const [candidates, setCandidates] = useState([]);
+
+  useEffect(() => {
+    getCandidates();
+  }, []);
+
+  function getCandidates() {
+    axios
+      .get("http://localhost/api/dashboard-react/index.php")
+      .then(function (response) {
+        //console.log(response.data);
+        setCandidates(response.data);
+      });
+  }
+
+  const data = candidates.map((data, key) => {
     return (
       <>
-        <tr key={data.id} className="items-table">
+        <tr key={key} className="items-table">
           <td className="flex place-items-center">
             <img className="mr-3" src={PhotoUser} alt="#" />
-            {data.name}
+            {data.name} {data.last_name}
           </td>
           <td className="">
-            <Star className="fill-yellow-400 w-5 h-5" />
-            {data.rating}
+            <div className="flex items-center">
+              <Star className="fill-yellow-400 w-5 h-5" />
+              <span className="ml-1">3</span>
+            </div>
           </td>
           <td>{data.stages}</td>
-          <td>{data.appliedeRole}</td>
-          <td>{data.applicationDate}</td>
-          <td>{data.attachments} files</td>
+          <td>{data.appliede_role}</td>
+          <td>{data.application_date}</td>
+          <td>2 files</td>
         </tr>
       </>
     );
