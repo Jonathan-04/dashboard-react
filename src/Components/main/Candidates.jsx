@@ -2,9 +2,11 @@ import { AiFillStar as Star } from "react-icons/ai";
 import PhotoUser from "../../assets/img/photo/photo1.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import AsideUser from "../asideUser/AsideUser";
 
 const Candidates = () => {
   const [candidates, setCandidates] = useState([]);
+  const [idCandidate, setIdCandidate] = useState(0);
 
   useEffect(() => {
     getCandidates();
@@ -19,10 +21,16 @@ const Candidates = () => {
       });
   }
 
+
   const data = candidates.map((data, key) => {
     return (
       <>
-        <tr key={key} className="items-table">
+        <tr key={key} className="candidatesTable items-table cursor-pointer" id={data.id} onClick={() => {
+          const menuCandidate = document.getElementById("candidateDetails")
+          menuCandidate.style.display = "block"
+          setIdCandidate(data.id);
+          console.log(idCandidate)
+        }}>
           <td className="flex place-items-center">
             <img className="mr-3" src={PhotoUser} alt="#" />
             {data.name} {data.last_name}
@@ -44,6 +52,7 @@ const Candidates = () => {
 
   return (
     <>
+      <AsideUser idCandidate={idCandidate} />
       <div className="flex justify-between">
         <h2 className="font-bold text-2xl">Candidates</h2>
         <select

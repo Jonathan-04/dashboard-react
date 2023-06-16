@@ -7,20 +7,40 @@ import { SiAirbnb as AirBnb } from "react-icons/si";
 import { BsArrowRightShort as Arrow } from "react-icons/bs";
 
 import PhotoUser from "../../assets/img/photo/photo1.png";
-const AsideUser = () => {
-  return (
-    <>
-      <aside className="fixed hidden w-[460px] z-10 bg-[#151515] h-[100%] right-0 overflow-auto">
-        <div className="flex justify-between m-6 ">
-          <h2 className="font-semibold text-xl">Candidate Details</h2>
-          <Close className="bg-[#1E1E1E] fill-[#FFFFFF] rounded-3xl w-6 h-6 p-1" />
-        </div>
-        <div className="bg-[#1E1E1E] m-6 flex flex-col items-center p-4 rounded-xl">
+import axios from "axios";
+import { useEffect, useState } from "react";
+const AsideUser = ({ idCandidate }) => {
+
+  //console.log(idCandidate)
+
+  const [candidateDetail, setCandidateDetail] = useState([])
+
+  useEffect(() =>{
+    getCandidateDetails()
+  },[])
+
+  function hiddeCandidateDetails() {
+    const menuCandidate = document.getElementById("candidateDetails");
+    menuCandidate.style.display = "none";
+  }
+
+  function getCandidateDetails() {
+    axios.get(`http://localhost/api/dashboard-react/candidatesDetails.php?id=2`)
+    .then(function(response){
+      console.log(response.data);
+      setCandidateDetail(response.data)
+    })
+  }
+
+  const dataCandidate = candidateDetail.map((data,key) => {
+    return(
+      <>
+        <div key={key} className="bg-[#1E1E1E] m-6 flex flex-col items-center p-4 rounded-xl">
           <img className="mr-3 w-14" src={PhotoUser} alt="#" />
           <h2 className="font-semibold text-[#FFFFFF] text-base">
-            Malaika Brown
+            {data.name} {data.last_name}
           </h2>
-          <p className="text-[#898989] text-sm">Sr. UX Designer</p>
+          <p className="text-[#898989] text-sm">{data.profession}</p>
           <div className="flex justify-between mt-11 w-[100%]">
             <ul className="flex items-center">
               <li className="mr-2 ml-2">
@@ -28,7 +48,7 @@ const AsideUser = () => {
               </li>
               <li>
                 <p className="text-[#898989] text-xs ">EMAIL</p>
-                <p className="text-[#FFFFFF] text-sm">malaika.br@gmail.com</p>
+                <p className="text-[#FFFFFF] text-sm">{data.email}</p>
               </li>
             </ul>
             <ul className="flex items-center">
@@ -37,11 +57,23 @@ const AsideUser = () => {
               </li>
               <li>
                 <p className="text-[#898989] text-xs ">PHONE NUMBER</p>
-                <p className="text-[#FFFFFF] text-sm">+11 5423-6548</p>
+                <p className="text-[#FFFFFF] text-sm">{data.number_phone}</p>
               </li>
             </ul>
           </div>
         </div>
+      </>
+    )
+  })
+
+  return (
+    <>
+      <aside id="candidateDetails" className="fixed hidden w-[460px] z-20 bg-[#151515] h-[100%] right-0 top-0 overflow-auto">
+        <div className="flex justify-between m-6 ">
+          <h2 className="font-semibold text-xl">Candidate Details</h2>
+          <Close onClick={hiddeCandidateDetails} className="cursor-pointer bg-[#1E1E1E] fill-[#FFFFFF] rounded-3xl w-6 h-6 p-1" />
+        </div>
+        {dataCandidate}
         <div className="bg-[#1E1E1E] m-6 flex flex-col p-4 rounded-xl">
           <h2 className="font-semibold text-xl">Application Details</h2>
           <section className="mt-6">

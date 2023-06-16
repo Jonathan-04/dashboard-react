@@ -16,7 +16,7 @@ const Card = () => {
     axios
       .get("http://localhost/api/dashboard-react/jobs_current.php")
       .then(function (response) {
-        console.log(response.data);
+        //console.log(response.data);
         setJobs(response.data);
       });
   }
