@@ -4,6 +4,7 @@ import { GiGraduateCap as Graduate } from "react-icons/gi";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Rectangle from "../../assets/img/icons/Rectangle.png";
+import Circle from "../../assets/img/icons/Ellipse1.png";
 
 const Card = () => {
   const [jobs, setJobs] = useState([]);
@@ -29,7 +30,7 @@ const Card = () => {
       >
         <img
           className="absolute top-0 right-0 w-[140px] h-[140px]"
-          src={`/img/icons/${data.circle}`}
+          src={`${Circle}`}
           alt="#"
         />
         <div className="flex place-items-center justify-between">
