@@ -1,15 +1,16 @@
-import AsideControl from "./Components/aside/AsideControl";
-import Header from "./Components/header/Header";
+import { Route, Routes } from "react-router-dom";
 import Main from "./Components/main/Main";
-import Test from "./Components/test/test";
+import Register from "./Components/forms/Register";
+import Login from "./Components/forms/Login";
 
 function App() {
   return (
-    <>{/*
-      <Header />
-      <AsideControl />
-  <Main />*/}
-      <Test />
+    <>
+      <Routes>
+        <Route path="/home" element={<Main />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </>
   );
 }
